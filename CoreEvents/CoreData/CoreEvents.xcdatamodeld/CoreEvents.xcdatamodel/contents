@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AttendedDate" representedClassName="AttendedDate" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="attendedDates" inverseEntity="Event"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isAttended" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="attendedDates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AttendedDate" inverseName="event" inverseEntity="AttendedDate"/>
+    </entity>
+    <elements>
+        <element name="Event" positionX="-298.19921875" positionY="202.12890625" width="128" height="118"/>
+        <element name="AttendedDate" positionX="47.59375" positionY="601.328125" width="128" height="73"/>
+    </elements>
+</model>
