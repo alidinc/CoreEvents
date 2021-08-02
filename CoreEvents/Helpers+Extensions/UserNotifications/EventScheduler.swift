@@ -32,7 +32,7 @@ class EventScheduler {
         
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: date)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
 
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         

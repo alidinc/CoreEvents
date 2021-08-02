@@ -14,16 +14,15 @@ class EventController {
     static let shared = EventController()
     let eventScheduler = EventScheduler()
     
-    var events: [[Event]] { [notAttendedEvents, attendedEvents] }
-    
     var attendedEvents = [Event]()
     var notAttendedEvents = [Event]()
+    
+    var events: [[Event]] { [notAttendedEvents, attendedEvents] }
     
     private lazy var fetchRequest: NSFetchRequest<Event> = {
         let request = NSFetchRequest<Event>(entityName: "Event")
         request.predicate = NSPredicate(value: true)
         return request
-        
     }()
     
     private init() { }
@@ -34,7 +33,6 @@ class EventController {
         let newEvent = Event(name: name, date: date)
         notAttendedEvents.append(newEvent)
         saveToPersistentStore()
-        
         eventScheduler.scheduleNotifications(for: newEvent)
     }
     
